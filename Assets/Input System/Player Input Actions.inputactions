@@ -1,0 +1,45 @@
+{
+    "name": "Player Input Actions",
+    "maps": [
+        {
+            "name": "Palyer",
+            "id": "4634bbb5-5efa-43be-9e78-71bb2fd72059",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "42c1cc4d-11d3-4b40-8bf6-935fb9b79e5f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9c3c668c-1679-44e9-9126-c5c44776571a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "53c7f4de-1a44-488b-a12c-ee4e84e1b854",
+                    "path": "<Touchscreen>/touch0/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
