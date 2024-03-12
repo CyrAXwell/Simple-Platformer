@@ -35,8 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D rayCastHitUpward = Physics2D.Raycast(transform.position, Vector2.up, transform.localScale.y / 2f + 0.2f, whatIsGround);
-        RaycastHit2D rayCastHitDownward = Physics2D.Raycast(transform.position, Vector2.down, transform.localScale.y / 2f + 0.2f, whatIsGround);
+        RaycastHit2D rayCastHitUpward = Physics2D.Raycast(transform.position, Vector2.up, transform.localScale.y / 2f + 0.5f, whatIsGround);
+        RaycastHit2D rayCastHitDownward = Physics2D.Raycast(transform.position, Vector2.down, transform.localScale.y / 2f + 0.5f, whatIsGround);
 
         return rayCastHitUpward.collider != null || rayCastHitDownward.collider != null;
     }
