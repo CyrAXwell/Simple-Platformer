@@ -40,4 +40,5 @@ public class PlayerMovement : MonoBehaviour
 
         return rayCastHitUpward.collider != null || rayCastHitDownward.collider != null;
     }
+
 }
