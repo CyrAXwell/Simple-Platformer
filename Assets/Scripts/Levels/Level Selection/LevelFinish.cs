@@ -91,11 +91,7 @@ public class LevelFinish : MonoBehaviour
         LevelComplete?.Invoke();
     }
 
-    public bool IsCompletedLevel()
-    {
-        return _persistentPlayerData.PlayerData.CompletedLevels >= LevelManager.currentLevel;
-    } 
-    
+    public bool IsCompletedLevel() => _persistentPlayerData.PlayerData.CompletedLevels >= LevelManager.currentLevel;   
 
     private void FadeFinishLine()
     {
