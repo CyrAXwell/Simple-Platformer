@@ -30,7 +30,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip GetAchievement;
 
     public static AudioManager instance;
-    private static float _sfxVolume;
 
     private void Awake()
     {
