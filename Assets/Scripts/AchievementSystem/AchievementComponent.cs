@@ -46,7 +46,7 @@ public class AchievementComponent : MonoBehaviour
         SetValue();
 
         _maxValue = _achievement.MaxValue;
-        _isRewarded = _persistentData.PlayerData.AchievementState(_id);
+        _isRewarded = _persistentData.PlayerData.GetAchievementState(_id);
         _isCompleted = _currentValue >= _maxValue;
 
         if (!_isRewarded)
@@ -81,7 +81,7 @@ public class AchievementComponent : MonoBehaviour
         descriptionTMP.text = _achievement.Description;
         SetValue();
 
-        _isRewarded = _persistentData.PlayerData.AchievementState(_id);
+        _isRewarded = _persistentData.PlayerData.GetAchievementState(_id);
         _isCompleted = _currentValue >= _maxValue;
 
         if (!_isRewarded)
@@ -137,10 +137,10 @@ public class AchievementComponent : MonoBehaviour
                 _currentValue = _persistentData.PlayerData.CompletedLevels;
                 break;
             case AchievementTypes.Stars:
-                _currentValue = _persistentData.PlayerData.StarsAmount();
+                _currentValue = _persistentData.PlayerData.GetStarsAmount();
                 break;
             case AchievementTypes.FullLevels:
-                _currentValue = _persistentData.PlayerData.FullLevelCompleted();
+                _currentValue = _persistentData.PlayerData.GetFullLevelCompletedAmount();
                 break;
             case AchievementTypes.OrbSkins:
                 _currentValue = _persistentData.PlayerData.OpenOrbSkins.ToList().Count();

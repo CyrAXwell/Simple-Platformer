@@ -173,7 +173,7 @@ public class PlayerData
             _levelsStars[level-1] = stars;
     }
 
-    public int StarsAmount()
+    public int GetStarsAmount()
     {
         int value = 0;
         
@@ -185,7 +185,7 @@ public class PlayerData
         return value;
     }
 
-    public int FullLevelCompleted()
+    public int GetFullLevelCompletedAmount()
     {
         int value = 0;
         
@@ -208,7 +208,7 @@ public class PlayerData
         _achievements[id] = true;
     }
 
-    public bool AchievementState(int id)
+    public bool GetAchievementState(int id)
     {
         if (id >= _achievements.Count())
             throw new ArgumentException(nameof(id));
