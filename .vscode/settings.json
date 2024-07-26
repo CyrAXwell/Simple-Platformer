@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Simple-Platformer.sln"
+    "dotnet.defaultSolution": "Simple-Platformer.sln",
+    "git.optimisticUpdate": true
 }

@@ -1,0 +1,28 @@
+public enum OrbSkins
+{
+    DefaultWhite,
+    DefaultBlue,
+    DefaultPurple,
+    DefaultRed,
+    DefaultGreen,
+    MagicWhite,
+    MagicBlue,
+    MagicPurple,
+    MagicRed,
+    MagicGreen,
+    NeonWhite,
+    NeonBlue,
+    NeonPurple,
+    NeonRed,
+    NeonGreen,
+    ShadowWhite,
+    ShadowBlue,
+    ShadowPurple,
+    ShadowRed,
+    ShadowGreen,
+    ElectricWhite,
+    ElectricBlue,
+    ElectricPurple,
+    ElectricRed,
+    ElectricGreen
+}

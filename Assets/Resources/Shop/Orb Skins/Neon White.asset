@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468f32b44d796424eb2b47d32a214ecb, type: 3}
+  m_Name: Neon White
+  m_EditorClassIdentifier: 
+  <Model>k__BackingField: {fileID: 7443730527521538514, guid: 851dec8fe0cf1b5499fcf7e61379614d, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: e158d93a689316b4f8bcb15972cf423b, type: 3}
+  <Price>k__BackingField: 5
+  <SkinType>k__BackingField: 10

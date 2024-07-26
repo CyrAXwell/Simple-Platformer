@@ -9,6 +9,12 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+/[Aa]ssets/My Assets/
+/[Aa]ssets/Sprites/Shop Icons/Orbs/Textures/
+/[Aa]ssets/Sprites/Shop Icons/Trails/Textures/
+/[Aa]ssets/Audio/Temp Audio/
+/WebGLBuild/
+/WebGLBuildTest/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data

@@ -286,14 +286,39 @@ PlayerSettings:
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs: []
   m_BuildTargetGraphicsJobMode: []
-  m_BuildTargetGraphicsAPIs: []
+  m_BuildTargetGraphicsAPIs:
+  - m_BuildTarget: WebGLSupport
+    m_APIs: 0b000000
+    m_Automatic: 1
   m_BuildTargetVRSettings: []
   m_DefaultShaderChunkSizeInMB: 16
   m_DefaultShaderChunkCount: 0
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
-  m_TemplateCustomTags: {}
+  m_TemplateCustomTags:
+    CHOOSE_LOADING_TYPE: 
+    CONFIGURE_SHADOWS_AROUND_CANVAS: 
+    CONNECT_PLUGIN: 
+    CUSTOMIZE_BARS_BACKGROUND: 
+    CUSTOMIZE_LOADING_SCREEN_BACKGROUND: 
+    CUSTOMIZE_LOGO: 
+    CUSTOM_EVENT_IN_CSS: 
+    CUSTOM_EVENT_IN_HTML: 
+    CUSTOM_EVENT_IN_JS: 
+    DISABLE_CONSOLE_MESSAGES: 
+    GP_GAMEREADY_AUTOCALL_DELAY: 
+    GP_PROJECT_ID: 
+    GP_SHOW_PRELOADER_AD: 
+    GP_TOKEN: 
+    IGB_GAME_DISTRIBUTION_GAME_ID: 
+    IGB_VK_PLAY_GAME_ID: 
+    LOCK_ASPECT_RATIO: all
+    PRODUCT_DESCRIPTION: 
+    YG_BANNER_DYNAMIC_1: 
+    YG_BANNER_DYNAMIC_2: 
+    YG_BANNER_STATIC_1: 
+    YG_BANNER_STATIC_2: 
   mobileMTRendering:
     Android: 1
     iPhone: 1
@@ -553,7 +578,7 @@ PlayerSettings:
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  webGLDecompressionFallback: 0
+  webGLDecompressionFallback: 1
   webGLInitialMemorySize: 32
   webGLMaximumMemorySize: 2048
   webGLMemoryGrowthMode: 2
@@ -682,7 +707,7 @@ PlayerSettings:
   embeddedLinuxEnableGamepadInput: 1
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
-  apiCompatibilityLevel: 6
+  apiCompatibilityLevel: 3
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 361d0133-6454-42d7-a274-0b6b06d6a567

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4956fbd5f1bfa414881a94bf1e01ff99, type: 3}
+  m_Name: TrailFactory
+  m_EditorClassIdentifier: 
+  defaultWhite: {fileID: 5380929841026004477, guid: 6a767823c7b9d644ca3ee80650bda145, type: 3}
+  defaultBlue: {fileID: 4576882220774124656, guid: 322226f1fb7cfba4f9f81ce460677305, type: 3}
+  defaultPurple: {fileID: 1009445029186468941, guid: 5e4b60fc163a2e7459d7ac8de8a17501, type: 3}
+  defaultRed: {fileID: 7196662024936141347, guid: cde74914fd8cebe4184e3629520be5f6, type: 3}
+  defaultGreen: {fileID: 4265010115275315570, guid: b0919af132ab74641b4611a7225caf39, type: 3}
+  magicWhite: {fileID: 5691450975483890460, guid: 80df5e3865a72b244bd60ef2d5f34892, type: 3}
+  magicBlue: {fileID: 1878164201173639215, guid: 97498abab243f3d44a5ce7b720995a26, type: 3}
+  magicPurple: {fileID: 1904663895884303364, guid: 7e90951571f5a3f4fa43478159d6683a, type: 3}
+  magicRed: {fileID: 9175388715910336527, guid: 3c17ea35c4423924996d4f2fd89b0a6f, type: 3}
+  magicGreen: {fileID: 4159058927343816720, guid: 072903be71885e840a63791624a1ea05, type: 3}
+  neonWhite: {fileID: 397588658552647185, guid: 1024ff2c68749824685960b4f21d5222, type: 3}
+  neonBlue: {fileID: 21275228841325463, guid: 44ad101339e8cda4c947ee9c158fc379, type: 3}
+  neonPurple: {fileID: 1924628992856540631, guid: d9bf3afca289c6b4489a3c945baa3a80, type: 3}
+  neonRed: {fileID: 450100971763251133, guid: 7fe6c712d2e2de64bb850552d510cf90, type: 3}
+  neonGreen: {fileID: 1226916826171608549, guid: f906a62e290bbaa4fbcfb6f350ada99d, type: 3}
+  shadowWhite: {fileID: 6850339670864498186, guid: 4d296724ac5e2eb4f8623c35627aa995, type: 3}
+  shadowBlue: {fileID: 232832759710140090, guid: c8530621fc5a10940b096a55befa8a4e, type: 3}
+  shadowPurple: {fileID: 1626421209894770768, guid: c6e151c9e6493204a96c108d354a90ab, type: 3}
+  shadowRed: {fileID: 6480981608522484254, guid: 80337adadba856f44a1a68a8c14d05a6, type: 3}
+  shadowGreen: {fileID: 2712702730103603482, guid: a09ac407bd129d44da0cf5934fb6f067, type: 3}
+  electricWhite: {fileID: 0}
+  electricBlue: {fileID: 0}
+  electricPurple: {fileID: 0}
+  electricRed: {fileID: 0}
+  electricGreen: {fileID: 0}

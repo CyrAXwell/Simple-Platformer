@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468f32b44d796424eb2b47d32a214ecb, type: 3}
+  m_Name: Default Purple
+  m_EditorClassIdentifier: 
+  <Model>k__BackingField: {fileID: 5901459001427383576, guid: a03dce1bcc6851740a7145e15fc97362, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 4de069b5cd723144cb1297f9fac06a12, type: 3}
+  <Price>k__BackingField: 3
+  <SkinType>k__BackingField: 2

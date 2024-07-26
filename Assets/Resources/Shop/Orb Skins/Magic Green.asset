@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468f32b44d796424eb2b47d32a214ecb, type: 3}
+  m_Name: Magic Green
+  m_EditorClassIdentifier: 
+  <Model>k__BackingField: {fileID: 2930315121342782267, guid: dd37c27cdc524b049a7aca2edd86d072, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 119d96beec67b574b812cd0d21238eff, type: 3}
+  <Price>k__BackingField: 5
+  <SkinType>k__BackingField: 9
