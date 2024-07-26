@@ -189,7 +189,7 @@ public class Shop : MonoBehaviour
 
     private void HideSelectedText() => selectedText.gameObject.SetActive(false);
 
-    public void SkinPlacementInit() =>
-        skinPlacement.InitializeShopContent(contentItems);
+    public void SkinPlacementInit() => skinPlacement.InitializeShopContent(contentItems);
+        
 
 }

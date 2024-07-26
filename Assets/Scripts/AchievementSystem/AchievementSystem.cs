@@ -61,10 +61,7 @@ public class AchievementSystem : MonoBehaviour
         }
     }
 
-    private void OnGetRewardClick()
-    {
-        _audioManager.PlaySFX(_audioManager.GetReward);
-    }
+    private void OnGetRewardClick() => _audioManager.PlaySFX(_audioManager.GetReward);
 
     private void OnDestroy()
     {

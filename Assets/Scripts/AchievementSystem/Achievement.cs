@@ -16,8 +16,4 @@ public class Achievement : ScriptableObject
     public int MaxValue => maxValue;
 
     public int Reward => reward;
-
-
-    
-
 }

@@ -18,13 +18,11 @@ public class DataLocalProvider : IDataProvider
             return false;
 
         _persistentData.PlayerData = JsonConvert.DeserializeObject<PlayerData>(File.ReadAllText(FullPath));
-        // в строку json
         return true;
     }
 
     public void Save()
     {
-        // из строки json в класс
         File.WriteAllText(FullPath, JsonConvert.SerializeObject(_persistentData.PlayerData, Formatting.Indented, new JsonSerializerSettings
         {
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore

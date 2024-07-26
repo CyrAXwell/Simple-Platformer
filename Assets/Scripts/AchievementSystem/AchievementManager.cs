@@ -14,7 +14,7 @@ public class AchievementManager : MonoBehaviour
     private string sceneName;
     private AudioManager _audioManager;
 
-     void OnEnable()
+    void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -67,9 +67,6 @@ public class AchievementManager : MonoBehaviour
 
     private void DisplayAchievement(int Id, float counter)
     {
-        // _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        // GetAchievement();
-
         AchievementDisplay achievementDisplay = Instantiate(displayPrefab);
         achievementDisplay.Initialize(_achievements[Id]);
 
@@ -78,10 +75,5 @@ public class AchievementManager : MonoBehaviour
         achievementDisplay.Display.DOAnchorPos(new Vector2(0, 0), 0.5f).SetDelay(delay).SetUpdate(true).SetLink(achievementDisplay.gameObject); //OnStart(GetAchievement)
         achievementDisplay.Display.DOAnchorPos(new Vector2(-722.5f, 0), 0.3f).SetDelay(delay + 2f).SetUpdate(true).SetLink(achievementDisplay.gameObject);
         Destroy(achievementDisplay.gameObject, 2.5f + delay);
-    }
-
-    private void GetAchievement()
-    {
-        _audioManager.PlaySFX(_audioManager.GetAchievement);
     }
 }

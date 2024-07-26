@@ -26,9 +26,7 @@ public class AchievementProgress : MonoBehaviour
         foreach (AchievementComponent achievement in achievementComponents)
         {
             if (achievement.IsCompleted == true)
-            {
                 _value ++;
-            }
         }
 
         float persentage = (float)_value / _persistentData.PlayerData.Achievements.Count();
