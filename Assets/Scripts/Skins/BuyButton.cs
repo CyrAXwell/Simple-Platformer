@@ -12,8 +12,6 @@ public class BuyButton : MonoBehaviour
     [SerializeField] private Color lockColor;
     [SerializeField] private Color unlockColor;
 
-    private bool _isLock;
-
     private void OnEnable() => button.onClick.AddListener(OnButtonClick);
 
     private void OnDisable() => button.onClick.RemoveListener(OnButtonClick);
@@ -22,13 +20,11 @@ public class BuyButton : MonoBehaviour
 
     public void Lock()
     {
-        _isLock = true;
         text.color = lockColor;
     }
 
     public void Unlock()
     {
-        _isLock = false;
         text.color = unlockColor;
     }
 

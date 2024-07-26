@@ -204,7 +204,6 @@ public class GamePlayHUD : MonoBehaviour
 
     public void SkipLevel()
     {
-        // Включается реклама
         if (!_isAdvStart)
         {
             _isAdvStart = true;
@@ -219,7 +218,6 @@ public class GamePlayHUD : MonoBehaviour
 
     public void SkipLevelReward()
     {
-        // После просморта вызывается завершение уровня
         levelSkipPanelUI.SetActive(false);
         levelSkipButton.SetActive(false);
         _levelFinish.SkipLevel();
