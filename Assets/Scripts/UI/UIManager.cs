@@ -141,7 +141,6 @@ public class UIManager : MonoBehaviour
         #if UNITY_WEBGL && !UNITY_EDITOR
         RateGameExtern();
         #endif
-        Debug.Log("onRateButton");
     }
 
     public void HideRateButton()

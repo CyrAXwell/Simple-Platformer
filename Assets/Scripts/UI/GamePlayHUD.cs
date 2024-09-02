@@ -48,6 +48,8 @@ public class GamePlayHUD : MonoBehaviour
     {
         if (_levelFinish.IsCompletedLevel())
             levelSkipButton.SetActive(false);
+        else if (GameObject.FindGameObjectWithTag("ySDK") == null)
+            levelSkipButton.GetComponent<Button>().interactable = false;
     }
 
     private void Start()

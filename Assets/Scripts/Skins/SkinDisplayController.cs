@@ -48,10 +48,10 @@ public class SkinDisplayController : MonoBehaviour
 
         byte[] bytes;
         bytes = tex.EncodeToPNG();
-        
+        #if UNITY_EDITOR
         string path = AssetDatabase.GetAssetPath(rt) + ".png";
         System.IO.File.WriteAllBytes(path, bytes);
         AssetDatabase.ImportAsset(path);
-        Debug.Log("Saved to " + path);
+        #endif
     }
 }

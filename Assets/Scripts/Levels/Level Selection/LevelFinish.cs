@@ -17,7 +17,6 @@ public class LevelFinish : MonoBehaviour
     private Wallet _wallet;
     private AudioManager _audioManager;
     private bool _isLevelSkip;
-    private YandexSDK _yandexSDK;
 
     public IPersistentData PersistentData => _persistentPlayerData;
     public bool IsLevelSkip => _isLevelSkip;
@@ -45,8 +44,7 @@ public class LevelFinish : MonoBehaviour
     {
         _audioManager.PlaySFX(_audioManager.LevelComplete);
         
-        _yandexSDK = GameObject.FindGameObjectWithTag("ySDK").GetComponent<YandexSDK>();
-        _yandexSDK.ShowAdv();
+        TryShowAdv();
 
         int unlockedLevels = _persistentPlayerData.PlayerData.UnlockedLevels;
 
@@ -97,5 +95,12 @@ public class LevelFinish : MonoBehaviour
     {
         finishLine.DOFade(0f, 1f).SetUpdate(true);
         text.DOFade(0f, 1f).SetUpdate(true);
+    }
+
+    private void TryShowAdv()
+    {
+        GameObject yandexSDK = GameObject.FindGameObjectWithTag("ySDK");
+        if (yandexSDK != null)
+            yandexSDK.GetComponent<YandexSDK>().ShowAdv();
     }
 }

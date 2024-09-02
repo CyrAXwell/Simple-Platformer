@@ -7,7 +7,6 @@ public class ShopBootstrap : MonoBehaviour
     [SerializeField] private SkinPlacement skinPlacement;
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private AchievementSystem achievementSystem;
-    [SerializeField] private YandexSDK yandexSDK;
 
     private IDataProvider _dataProvider;
     private IPersistentData _persistentPlayerData;

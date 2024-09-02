@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using UnityEngine;
 
 public class Wallet
 {
@@ -19,9 +20,12 @@ public class Wallet
         
         _persistentData.PlayerData.Money += coins;
         _persistentData.PlayerData.MaxMoney += coins;
-        #if UNITY_WEBGL && !UNITY_EDITOR
-        AddCoinsExtern(_persistentData.PlayerData.MaxMoney);
-        #endif
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+        GameObject yandexSDK = GameObject.FindGameObjectWithTag("ySDK");
+        if (yandexSDK != null)
+            AddCoinsExtern(_persistentData.PlayerData.MaxMoney);  
+#endif
         CoinsChanged?.Invoke(_persistentData.PlayerData.Money);
     }
 

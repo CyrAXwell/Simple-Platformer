@@ -57,7 +57,6 @@ public class YandexSDK : MonoBehaviour
         _isRewarded = false;
         #if UNITY_WEBGL && !UNITY_EDITOR
         ShowRewardedAdvExtern();
-        //audioManager.PauseSound();
         #endif
     }
 
