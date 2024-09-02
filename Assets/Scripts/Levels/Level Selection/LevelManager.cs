@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class LevelManager : MonoBehaviour
 {
@@ -17,15 +18,18 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        
     }
 
+    [Inject]
     public void Initialize(IPersistentData persistentData)
     {
+        Debug.Log("LevelManager " + persistentData);
         _persistentData = persistentData;
         maxLevels = levelSelectors.Count;
         for (int i = 0; i < levelSelectors.Count(); i++)
             levelSelectors[i].Initialize(i+1);
-            
+
         LoadlevelPanel();
     }
 

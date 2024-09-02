@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class WalletView : MonoBehaviour
 {
@@ -7,7 +8,8 @@ public class WalletView : MonoBehaviour
 
     private Wallet _wallet;
 
-    public void Initialize(Wallet wallet)
+    [Inject]
+    private void Construct(Wallet wallet)
     {
         _wallet = wallet;
         UpdateValue(_wallet.GetCurrentCoins());

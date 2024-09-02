@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 public class SkinPlacement : MonoBehaviour
 {
@@ -12,16 +13,18 @@ public class SkinPlacement : MonoBehaviour
     private GameObject _currentOrbSkin;
     private TrailSkinItem _selectedTrailSkin;
     private OrbSkinItem _selectedOrbSkin;
-    
-    public void InitializeShopContent(ShopContent contentItems)
+
+    [Inject]
+    private void Consruct(IPersistentData persistentPlayerData)
     {
-        _shopContent = contentItems;
+        _initTrailSkinType = persistentPlayerData.PlayerData.SelectedTrailSkin;
+        _initOrbSkinType = persistentPlayerData.PlayerData.SelectedOrbSkin; 
     }
 
-    public void Initialize(TrailSkins trailSkin, OrbSkins orbSkin)
+    public void Initialize(ShopContent contentItems)
     {
-        _initTrailSkinType = trailSkin;
-        _initOrbSkinType = orbSkin;
+        Debug.Log("SkinPlacement ");
+        _shopContent = contentItems;
 
         foreach (var item in _shopContent.TrailSkinItems)
         {

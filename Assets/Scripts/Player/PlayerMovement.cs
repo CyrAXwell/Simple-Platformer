@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private bool _isBlocked;
 
-    private void Awake()
+    private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _rb.gravityScale = gravityScale;

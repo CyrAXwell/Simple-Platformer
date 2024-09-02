@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class GameSceneLevelManager : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class GameSceneLevelManager : MonoBehaviour
 
     private int _currentLevel;
 
+    [Inject]
     public void Initialize(IDataProvider dataProvider, IPersistentData persistentPlayerData)
     {
         _currentLevel = LevelManager.currentLevel - 1;

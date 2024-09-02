@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class Shop : MonoBehaviour
 {
@@ -47,7 +48,8 @@ public class Shop : MonoBehaviour
         selectionButton.onClick.RemoveListener(OnSelectionButtonClick);
     }
 
-    public void Initialize(IDataProvider dataProvider, Wallet wallet, OpenSkinsChecker openSkinsChecker, SelectedSkinsChecker selectedSkinsChecker, SkinSelector skinSelector, SkinUnlocker skinUnlocker)
+    [Inject]
+    private void Construct(IDataProvider dataProvider, Wallet wallet, OpenSkinsChecker openSkinsChecker, SelectedSkinsChecker selectedSkinsChecker, SkinSelector skinSelector, SkinUnlocker skinUnlocker)
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 
@@ -60,10 +62,6 @@ public class Shop : MonoBehaviour
         _dataProvider = dataProvider;
 
         shopPanel.Initialize(openSkinsChecker, selectedSkinsChecker);
-
-        skinPlacement.InitializeShopContent(contentItems);
-
-        OnTrailSkinsbuttonClick();
     }
 
     private void OnItemViewClicked(ShopItemView item)
@@ -189,7 +187,11 @@ public class Shop : MonoBehaviour
 
     private void HideSelectedText() => selectedText.gameObject.SetActive(false);
 
-    public void SkinPlacementInit() => skinPlacement.InitializeShopContent(contentItems);
+    public void SkinPlacementInitialize()
+    {
+        skinPlacement.Initialize(contentItems);
+        OnTrailSkinsbuttonClick();
+    }
         
 
 }

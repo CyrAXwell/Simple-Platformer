@@ -1,6 +1,7 @@
 using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
+using Zenject;
 
 public class DataLocalProvider : IDataProvider
 {
@@ -10,7 +11,14 @@ public class DataLocalProvider : IDataProvider
     private string FullPath => Path.Combine(SavePath, $"{FileName}{SaveFileExension}");
     private IPersistentData _persistentData;
 
-    public DataLocalProvider(IPersistentData persistentData) => _persistentData = persistentData;
+    [Inject]
+    public DataLocalProvider(IPersistentData persistentData)
+    {
+        _persistentData = persistentData;
+        Debug.Log("DataLocalProvider");
+        LoadDataOrInit();
+        Debug.Log(_persistentData.PlayerData);
+    }
 
     public bool TryLoad()
     {
@@ -30,4 +38,10 @@ public class DataLocalProvider : IDataProvider
     }
 
     private bool IsDataAlreadyExist() => File.Exists(FullPath);
+
+    private void LoadDataOrInit()
+    {
+        if (TryLoad() == false)
+            _persistentData.PlayerData = new PlayerData();
+    }
 }

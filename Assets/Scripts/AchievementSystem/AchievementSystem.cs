@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class AchievementSystem : MonoBehaviour
 {
@@ -22,7 +23,8 @@ public class AchievementSystem : MonoBehaviour
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
-    public void Initialize(IPersistentData persistentData, Wallet wallet, IDataProvider dataProvider)
+    [Inject]
+    private void Construct(IPersistentData persistentData, Wallet wallet, IDataProvider dataProvider)
     {
         _persistentData = persistentData;
         _wallet = wallet;
