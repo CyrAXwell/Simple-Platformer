@@ -10,19 +10,27 @@ public class AchievementManager : MonoBehaviour
     private List<AchievementComponent> _achievementComponents;
     private List<Achievement> _achievements;
     private LevelFinish _levelFinish;
-    private IPersistentData _persistentData;
-    private string sceneName;
-    private AudioManager _audioManager;
+    private string _sceneName;
 
-    void OnEnable()
+    public static AchievementManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-    
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+    }    
 
     public void Initialize(List<AchievementComponent> achievementComponents, List<Achievement> achievements)
     {
@@ -30,25 +38,9 @@ public class AchievementManager : MonoBehaviour
         _achievements = achievements;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        sceneName = scene.name;
-        if (sceneName == "GameScene")
-        {
-            _levelFinish = GameObject.Find("Trigger").GetComponent<LevelFinish>();
-            _levelFinish.LevelComplete += CheckAchievements;  
-            _persistentData = _levelFinish.PersistentData;
-        } 
-    }
-
-    public void LoadData(IPersistentData persistentData)
-    {
-        _persistentData = persistentData;
-    }
-
     public void CheckAchievements()
     {
-        if (sceneName == "GameScene")
+        if (_sceneName == "GameScene")
         {
             _levelFinish.LevelComplete -= CheckAchievements;
         }
@@ -57,12 +49,22 @@ public class AchievementManager : MonoBehaviour
 
         foreach (AchievementComponent achievement in _achievementComponents)
         {
-            if (achievement.CheckValue(_persistentData))
+            if (achievement.CheckValue())
             {
                 DisplayAchievement(achievement.Id, counter);
                 counter ++;
             }    
         }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        _sceneName = scene.name;
+        if (_sceneName == "GameScene")
+        {
+            _levelFinish = GameObject.Find("Trigger").GetComponent<LevelFinish>();
+            _levelFinish.LevelComplete += CheckAchievements;  
+        } 
     }
 
     private void DisplayAchievement(int Id, float counter)

@@ -5,9 +5,17 @@ public class RotaingAroundObstacle : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Transform target;
 
+    private bool _canMove;
+
+    private void Start()
+    {
+        _canMove = true;
+    }
+
     private void Update()
     {
-        Rotate();
+        if (_canMove)
+            Rotate();
     }
 
     private void Rotate() =>

@@ -7,7 +7,6 @@ public class SelectedSkinsChecker : IShopItemVisitor
 
     public SelectedSkinsChecker(IPersistentData persistentData) => _persistentData = persistentData;
 
-
     public void Visit(ShopItem shopItem)
     {
         switch (shopItem)

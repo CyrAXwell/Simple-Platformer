@@ -10,10 +10,7 @@ public class Achievement : ScriptableObject
     [field: SerializeField] public AchievementTypes Type { get; private set; }
 
     public string Description => description;
-    
     public GameObject Icon => icon;
-
     public int MaxValue => maxValue;
-
     public int Reward => reward;
 }

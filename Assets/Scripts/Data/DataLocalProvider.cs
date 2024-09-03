@@ -15,9 +15,7 @@ public class DataLocalProvider : IDataProvider
     public DataLocalProvider(IPersistentData persistentData)
     {
         _persistentData = persistentData;
-        Debug.Log("DataLocalProvider");
         LoadDataOrInit();
-        Debug.Log(_persistentData.PlayerData);
     }
 
     public bool TryLoad()

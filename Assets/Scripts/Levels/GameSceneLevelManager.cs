@@ -9,19 +9,19 @@ public class GameSceneLevelManager : MonoBehaviour
     private int _currentLevel;
 
     [Inject]
-    public void Initialize(IDataProvider dataProvider, IPersistentData persistentPlayerData)
+    private void Construct(IDataProvider dataProvider, IPersistentData persistentPlayerData, Wallet wallet)
     {
         _currentLevel = LevelManager.currentLevel - 1;
 
         ClearScene();
-        Initializelevel(dataProvider, persistentPlayerData);
+        Initializelevel(dataProvider, persistentPlayerData, wallet);
     }
 
-    private void Initializelevel(IDataProvider dataProvider, IPersistentData persistentPlayerData)
+    private void Initializelevel(IDataProvider dataProvider, IPersistentData persistentPlayerData, Wallet wallet)
     {
         levels[_currentLevel].SetActive(true);
         levels[_currentLevel].GetComponent<StarsManager>().Initialize(persistentPlayerData);
-        levels[_currentLevel].GetComponentInChildren<LevelFinish>().Initialize(dataProvider, persistentPlayerData);
+        levels[_currentLevel].GetComponentInChildren<LevelFinish>().Initialize(dataProvider, persistentPlayerData, wallet);
     }
 
     private void ClearScene()

@@ -14,11 +14,8 @@ public class AchievementDisplay : MonoBehaviour
     public void Initialize(Achievement achievement)
     {
         descriptionTMP.text = achievement.Description;
-
         Instantiate(achievement.Icon, iconTransform);
-
         counterText.text = achievement.MaxValue.ToString() + "/" + achievement.MaxValue.ToString();
-
         rewardText.text = achievement.Reward.ToString();
     }
 }

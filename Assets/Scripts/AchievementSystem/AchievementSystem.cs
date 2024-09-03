@@ -11,11 +11,9 @@ public class AchievementSystem : MonoBehaviour
     [SerializeField] private AchievementProgress achievementProgress;
     [SerializeField] private AchievementManager achievementManager;
 
-    private IPersistentData _persistentData;
-    private Wallet _wallet;
     private int _id = 0;
-    private IDataProvider _dataProvider;
     private List<AchievementComponent> _achievementComponents = new List<AchievementComponent>();
+    private DiContainer _diContainer;
     private AudioManager _audioManager;
 
     private void Start()
@@ -24,34 +22,30 @@ public class AchievementSystem : MonoBehaviour
     }
 
     [Inject]
-    private void Construct(IPersistentData persistentData, Wallet wallet, IDataProvider dataProvider)
+    private void Construct(IPersistentData persistentData, DiContainer diContainer)
     {
-        _persistentData = persistentData;
-        _wallet = wallet;
-        _dataProvider = dataProvider;
+        _diContainer = diContainer;
 
         shop.BuySkin += UpdateAchievements;
 
         foreach (Achievement achievement in achievements)
         {
-            
-            AchievementComponent achievementComponent = Instantiate(achievementPrefab, content);
+            AchievementComponent achievementComponent = _diContainer.InstantiatePrefab(achievementPrefab, content).GetComponent<AchievementComponent>();
             _achievementComponents.Add(achievementComponent);
 
             persistentData.PlayerData.CreateAchivement(_id);
-            achievementComponent.Initialize(achievement, _persistentData, _wallet, _id, _dataProvider);
+            achievementComponent.Initialize(achievement, _id);
             achievementComponent.GetRewardClick += OnGetRewardClick;
             _id ++; 
         }
 
-        achievementProgress.Initialize(_persistentData, _achievementComponents);
+        achievementProgress.Initialize(_achievementComponents);
         achievementManager.Initialize(_achievementComponents, achievements);
     }
 
     private void UpdateAchievements(AchievementTypes type)
     {
         achievementProgress.DisplayProgress(_achievementComponents);
-        achievementManager.LoadData(_persistentData);
         achievementManager.CheckAchievements();
 
         foreach (AchievementComponent achievement in _achievementComponents)

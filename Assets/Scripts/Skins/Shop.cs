@@ -6,6 +6,8 @@ using Zenject;
 
 public class Shop : MonoBehaviour
 {
+    public event Action<AchievementTypes> BuySkin;
+
     [SerializeField] private ShopContent contentItems;
     [SerializeField] private ShopCategoryButton trailSkinsButton;
     [SerializeField] private ShopCategoryButton orbSkinsButton;
@@ -23,8 +25,6 @@ public class Shop : MonoBehaviour
     private OpenSkinsChecker _openSkinsChecker;
     private SelectedSkinsChecker _selectedSkinsChecker;
     private AudioManager _audioManager;
-    
-    public event Action<AchievementTypes> BuySkin;
 
     private void OnEnable()
     {

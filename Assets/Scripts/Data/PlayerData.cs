@@ -7,16 +7,12 @@ public class PlayerData
 {
     private TrailSkins _selectedTrailSkin;
     private OrbSkins _selectedOrbSkin;
-
     private List<TrailSkins> _openTrailSkins;
     private List<OrbSkins> _openOrbSkins;
-
     private int _money;
     private int _maxMoney;
-
     private int _unlockedLevels;
     private List<string> _levelsStars;
-
     private List<bool> _achievements;
     private int _completedLevels;
 

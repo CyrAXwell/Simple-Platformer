@@ -12,18 +12,23 @@ public class MovingObstacle : MonoBehaviour
     private Vector3 _targetPosition;
     private int _index = 1;
     private int _direction = 1;
-    private bool canMove = true;
+    private bool _canMove;
 
     private void Awake()
     {
         _targetPosition = waypoints[_index].position;
     }
 
+    private void Start()
+    {
+        _canMove = true;
+    }
+
     private void Update()
     {
         CheckTargetPosition();
 
-        if (canMove)
+        if (_canMove)
             Move();
     }
 
@@ -33,7 +38,7 @@ public class MovingObstacle : MonoBehaviour
 
     private void CheckTargetPosition()
     {
-        if (canMove && transform.position == _targetPosition)
+        if (_canMove && transform.position == _targetPosition)
         {
             StartCoroutine(Stay(idleTime));
             ChangeTarget();
@@ -62,9 +67,9 @@ public class MovingObstacle : MonoBehaviour
 
     private IEnumerator Stay(float time)
     {
-        canMove = false;
+        _canMove = false;
         yield return new WaitForSeconds(time);
-        canMove = true;
+        _canMove = true;
     }
 
 }

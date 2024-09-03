@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 public class GamePlayHUD : MonoBehaviour
 {
     [SerializeField] private VolumeSettings pausePanelUI;
@@ -42,15 +41,7 @@ public class GamePlayHUD : MonoBehaviour
         _levelFinish = levels.transform.GetChild(LevelManager.currentLevel - 1).GetComponentInChildren<LevelFinish>();
         _isLoadNewScene = false;
         _isAdvStart = false;
-    }   
-
-    public void ShowSkipButton()
-    {
-        if (_levelFinish.IsCompletedLevel())
-            levelSkipButton.SetActive(false);
-        else if (GameObject.FindGameObjectWithTag("ySDK") == null)
-            levelSkipButton.GetComponent<Button>().interactable = false;
-    }
+    }  
 
     private void Start()
     {
@@ -65,15 +56,14 @@ public class GamePlayHUD : MonoBehaviour
     private void OnDisable()
     {
         _levelFinish.LevelComplete -= OpenLevelCompletePanel;
-    }
+    } 
 
-    public void DisplayStar()
+    public void ShowSkipButton()
     {
-        if (_starIndex < 3)
-        {
-            stars[_starIndex].SetActive(true);
-            _starIndex ++;
-        }
+        if (_levelFinish.IsCompletedLevel())
+            levelSkipButton.SetActive(false);
+        else if (GameObject.FindGameObjectWithTag("ySDK") == null)
+            levelSkipButton.GetComponent<Button>().interactable = false;
     }
 
     public void LoadMainScreen() =>
@@ -96,10 +86,13 @@ public class GamePlayHUD : MonoBehaviour
         _pausePanelBackground.DOFade(0f, 0.2f).SetUpdate(true).OnComplete(DisablePausePanel);
     }
 
-    private void DisablePausePanel()
+    public void DisplayStar()
     {
-        levelLable.SetActive(true);
-        pausePanelUI.gameObject.SetActive(false);
+        if (_starIndex < 3)
+        {
+            stars[_starIndex].SetActive(true);
+            _starIndex ++;
+        }
     }
 
     public void OpenLevelSkipMenu()
@@ -129,12 +122,6 @@ public class GamePlayHUD : MonoBehaviour
         pauseButton.interactable = true;
     }
 
-    private void DisableLevelSkipPanel()
-    {
-        levelLable.SetActive(true);
-        levelSkipPanelUI.SetActive(false);
-    }
-
     public void OpenLevelCompletePanel()
     {   
         if (!_levelFinish.IsLevelSkip)
@@ -150,25 +137,6 @@ public class GamePlayHUD : MonoBehaviour
             pauseButton.interactable = false;
             levelCompletePanel.ShowLevelCompletePanel();
         }
-    }
-
-    private void ShowPanel(Image background, RectTransform rectTransform)
-    {
-        PauseGame();
-
-        background.DOFade(0.5f, fadeTime).SetUpdate(true);
-        rectTransform.DOAnchorPos(new Vector2(0f, 5f), slideTime).SetDelay(0.3f).SetUpdate(true).SetLink(gameObject).SetLink(gameObject);   
-    }
-
-    private void InitializePanel(GameObject panel)
-    {
-        Image background = panel.GetComponent<Image>();
-        background.DOFade(0f, 0f); 
-
-        RectTransform rectTransform = panel.transform.GetChild(0).gameObject.GetComponentInChildren<RectTransform>();
-        rectTransform.DOAnchorPos(new Vector2(0f, 1000f), 0f).SetLink(gameObject);
-
-        panel.SetActive(false);
     }
 
     public void PauseGame() =>
@@ -228,4 +196,34 @@ public class GamePlayHUD : MonoBehaviour
     public void OnButtonClickSound() =>
         _audioManager.PlaySFX(_audioManager.ButtonClick);
 
+    private void DisablePausePanel()
+    {
+        levelLable.SetActive(true);
+        pausePanelUI.gameObject.SetActive(false);
+    }
+
+    private void DisableLevelSkipPanel()
+    {
+        levelLable.SetActive(true);
+        levelSkipPanelUI.SetActive(false);
+    }
+    
+    private void ShowPanel(Image background, RectTransform rectTransform)
+    {
+        PauseGame();
+
+        background.DOFade(0.5f, fadeTime).SetUpdate(true);
+        rectTransform.DOAnchorPos(new Vector2(0f, 5f), slideTime).SetDelay(0.3f).SetUpdate(true).SetLink(gameObject).SetLink(gameObject);   
+    }
+
+    private void InitializePanel(GameObject panel)
+    {
+        Image background = panel.GetComponent<Image>();
+        background.DOFade(0f, 0f); 
+
+        RectTransform rectTransform = panel.transform.GetChild(0).gameObject.GetComponentInChildren<RectTransform>();
+        rectTransform.DOAnchorPos(new Vector2(0f, 1000f), 0f).SetLink(gameObject);
+
+        panel.SetActive(false);
+    }
 }

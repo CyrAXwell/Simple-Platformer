@@ -14,22 +14,19 @@ public class PlayerHealth : MonoBehaviour
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
-    
 
     public void TakeDamage(float damage)
     {
         _currentHealth = Mathf.Clamp(_currentHealth - damage, 0f, maxStartHealth);
 
         if (_currentHealth <= 0)
-            Die();
+            Death();
     }
 
-    private void Die()
+    private void Death()
     {   
         _audioManager.PlaySFX(_audioManager.DeathSound);
-
         Time.timeScale = 0f;
-        
         sceneTransition.EndSceneTransition("GameScene");
     }
 }

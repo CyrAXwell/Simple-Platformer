@@ -26,10 +26,11 @@ public class LevelFinish : MonoBehaviour
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
-    public void Initialize(IDataProvider dataProvider, IPersistentData persistentPlayerData)
+    public void Initialize(IDataProvider dataProvider, IPersistentData persistentPlayerData, Wallet wallet)
     {
         _dataProvider = dataProvider;
         _persistentPlayerData = persistentPlayerData;
+        _wallet = wallet;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -66,7 +67,6 @@ public class LevelFinish : MonoBehaviour
         if (currentStars > stars)
         {
             _persistentPlayerData.PlayerData.AddLevelsStars(LevelManager.currentLevel, starCollector.GetStarsList());
-            _wallet = new Wallet(_persistentPlayerData);
             _wallet.AddCoins(currentStars - stars);
         }
         

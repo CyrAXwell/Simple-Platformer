@@ -3,9 +3,12 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class AchievementComponent : MonoBehaviour
 {
+    public event Action GetRewardClick;
+
     [SerializeField] private TMP_Text descriptionTMP;
     [SerializeField] private Transform iconTransform;
     [SerializeField] private TMP_Text counterText;
@@ -28,16 +31,21 @@ public class AchievementComponent : MonoBehaviour
     public AchievementTypes Type => _type;
     public bool IsCompleted => _isCompleted;
     public int Id => _id;
-    public event Action GetRewardClick;
     
-
-    public void Initialize(Achievement achievement, IPersistentData persistentData, Wallet wallet, int id, IDataProvider dataProvider)
+    [Inject]
+    private void Construct(IPersistentData persistentData, IDataProvider dataProvider, Wallet wallet)
     {
-        _achievement = achievement;
         _persistentData = persistentData;
         _wallet = wallet;
-        _id = id;
         _dataProvider = dataProvider;
+    }
+
+    public void Initialize(Achievement achievement, int id)
+    {
+        _achievement = achievement;
+        
+        _id = id;
+        
 
         descriptionTMP.text = _achievement.Description;
 
@@ -112,11 +120,10 @@ public class AchievementComponent : MonoBehaviour
 
     }
 
-    public bool CheckValue(IPersistentData persistentData)
+    public bool CheckValue()
     {
         if (_isCompleted == false)
         {
-            _persistentData = persistentData;
             SetValue();
 
             _isCompleted = _currentValue >= _maxValue;

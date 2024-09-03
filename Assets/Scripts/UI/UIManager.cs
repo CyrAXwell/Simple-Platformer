@@ -58,12 +58,6 @@ public class UIManager : MonoBehaviour
 
     }
 
-    private void HidePanel(GameObject panel) =>
-        panel.SetActive(false);
-
-    private void ShowPanel(GameObject panel) => 
-        panel.SetActive(true);
-
     public void OpenMainPanel(GameObject hidePanel)
     {
         hidePanel.SetActive(false);
@@ -163,4 +157,9 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
     }
 
+    private void HidePanel(GameObject panel) =>
+        panel.SetActive(false);
+
+    private void ShowPanel(GameObject panel) => 
+        panel.SetActive(true);
 }

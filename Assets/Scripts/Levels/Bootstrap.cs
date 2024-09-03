@@ -10,17 +10,17 @@ public class Bootstrap : MonoBehaviour
 
     private IPersistentData _persistentPlayerData;
 
+    [Inject]
+    private void Construct( IPersistentData persistentPlayerData)
+    {
+        _persistentPlayerData = persistentPlayerData;
+    }
+
     private void Awake()
     {
         gamePlayHUD.transform.parent.gameObject.SetActive(true);
         GetSkins();
         gamePlayHUD.ShowSkipButton();
-    }
-
-    [Inject]
-    private void Construct( IPersistentData persistentPlayerData)
-    {
-        _persistentPlayerData = persistentPlayerData;
     }
 
     private void GetSkins()

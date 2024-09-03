@@ -3,6 +3,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class AchievementProgress : MonoBehaviour
 {
@@ -12,10 +13,14 @@ public class AchievementProgress : MonoBehaviour
     private int _value;
     private IPersistentData _persistentData;
 
-    public void Initialize(IPersistentData persistentData, List<AchievementComponent> achievementComponents)
+    [Inject]
+    private void Construct(IPersistentData persistentData)
     {
         _persistentData = persistentData;
+    }
 
+    public void Initialize(List<AchievementComponent> achievementComponents)
+    {
         DisplayProgress(achievementComponents);
     }
 

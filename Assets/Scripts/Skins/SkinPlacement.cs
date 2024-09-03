@@ -23,7 +23,6 @@ public class SkinPlacement : MonoBehaviour
 
     public void Initialize(ShopContent contentItems)
     {
-        Debug.Log("SkinPlacement ");
         _shopContent = contentItems;
 
         foreach (var item in _shopContent.TrailSkinItems)

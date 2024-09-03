@@ -14,23 +14,21 @@ public class LevelManager : MonoBehaviour
 
     public static int maxLevels = 40;
     public static int currentLevel = 1;
-    
-    private void Start()
-    {
-        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        
-    }
 
     [Inject]
-    public void Initialize(IPersistentData persistentData)
+    private void Construct(IPersistentData persistentData)
     {
-        Debug.Log("LevelManager " + persistentData);
         _persistentData = persistentData;
         maxLevels = levelSelectors.Count;
         for (int i = 0; i < levelSelectors.Count(); i++)
             levelSelectors[i].Initialize(i+1);
 
         LoadlevelPanel();
+    }
+
+    private void Start()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>(); 
     }
 
     public void StartLevel(LevelSelector level)

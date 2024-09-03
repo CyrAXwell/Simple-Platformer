@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _rb.gravityScale = gravityScale;
+        _rb.gravityScale = gravityScale;   
     }
 
     private void Update()
